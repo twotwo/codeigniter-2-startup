@@ -30,3 +30,7 @@ http://ci-dev.com/pages/view/about
 * 初始化数据库: source conf/mysql_init.sql
 * 数据库配置: dbdriver要设置成mysqli
 * 显示数据: http://ci-dev.com/news
+
+### [创建新闻条目](http://codeigniter.org.cn/user_guide/tutorial/create_news_items.html)
+
+http://ci-dev.com/index.php/news/create

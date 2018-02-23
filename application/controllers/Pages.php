@@ -1,4 +1,9 @@
 <?php
+/**
+ * [控制器](http://codeigniter.org.cn/user_guide/general/controllers.html)
+ * 
+ * 一个控制器就是一个类文件，名称能够和 URI 关联在一起：http://ci-dev.com/pages/
+ */
 class Pages extends CI_Controller {
 
     public function view($page = 'home') {

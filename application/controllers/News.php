@@ -4,6 +4,9 @@ class News extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('news_model');
+        /**
+         * [URL 辅助函数](http://codeigniter.org.cn/user_guide/helpers/url_helper.html)
+         */
         $this->load->helper('url_helper');
     }
 

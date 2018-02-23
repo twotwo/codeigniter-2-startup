@@ -34,14 +34,23 @@ class News extends CI_Controller {
     }
 
     public function create() {
+        /**
+         * [表单辅助函数](http://codeigniter.org.cn/user_guide/helpers/form_helper.html)
+         * 生成 form 元素
+         */
         $this->load->helper('form');
+        /**
+         * [表单验证类](http://codeigniter.org.cn/user_guide/libraries/form_validation.html)
+         */
         $this->load->library('form_validation');
 
         $data['title'] = 'Create a news item';
 
+        //设置验证规则: form name, read name, rule, error info
         $this->form_validation->set_rules('title', 'Title', 'required');
         $this->form_validation->set_rules('text', 'Text', 'required');
 
+        //运行验证程序
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('templates/header', $data);
             $this->load->view('news/create');

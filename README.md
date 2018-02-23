@@ -34,3 +34,16 @@ http://ci-dev.com/pages/view/about
 ### [创建新闻条目](http://codeigniter.org.cn/user_guide/tutorial/create_news_items.html)
 
 http://ci-dev.com/index.php/news/create
+
+### [以 CLI 方式运行](http://codeigniter.org.cn/user_guide/general/cli.html)
+```bash
+➜  codeigniter-2-startup git:(master) ✗ php index.php news   
+<html>
+    <head>
+        <title>CodeIgniter 2 Tutorial</title>
+    </head>
+    <body>
+
+        <h1>News archive</h1><h2>News archive</h2>
+...
+```

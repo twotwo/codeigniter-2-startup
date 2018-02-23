@@ -47,3 +47,14 @@ http://ci-dev.com/index.php/news/create
         <h1>News archive</h1><h2>News archive</h2>
 ...
 ```
+
+### [移除 URL 中的 index.php](http://codeigniter.org.cn/user_guide/general/urls.html)
+* [Removing /index.php on Nginx](https://laracasts.com/discuss/channels/general-discussion/remving-indexphp-completely)
+* [Nginx的try_files指令使用实例](https://www.hi-linux.com/posts/53878.html)
+
+
+```nginx
+location / {
+    try_files $uri $uri/ /index.php?$query_string;
+}
+```

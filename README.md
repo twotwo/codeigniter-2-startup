@@ -27,8 +27,11 @@ ENVIRONMENT 常量
 ### 2.3 [性能分析](http://codeigniter.org.cn/user_guide/general/profiling.html)
  * `controllers/Pages.php` line 11, 启用分析器
 
-### 2.4 [错误处理](http://codeigniter.org.cn/user_guide/general/errors.html)
- * 
+### 2.4 [日志](http://codeigniter.org.cn/user_guide/general/errors.html)
+ * 日志目录 `application/logs`
+ * `application/config/config.php` line 185 $config['log_threshold']
+ * log_message($level, $message) $level (string) -- Log level: 'error', 'debug' or 'info'
+ * `controllers/Pages.php` line 
 
 ## 3. 代码上手教程
 http://ci-dev.com/news/latest/10

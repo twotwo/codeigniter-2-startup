@@ -11,6 +11,17 @@
  * 配置文件: conf/nginx.conf
  * 访问地址: http://ci-dev.com/
 
+#### [移除 URL 中的 index.php](http://codeigniter.org.cn/user_guide/general/urls.html)
+* [Removing /index.php on Nginx](https://laracasts.com/discuss/channels/general-discussion/remving-indexphp-completely)
+* [Nginx的try_files指令使用实例](https://www.hi-linux.com/posts/53878.html)
+
+
+```nginx
+location / {
+    try_files $uri $uri/ /index.php?$query_string;
+}
+```
+
 ### 2.2 [配置多环境](http://codeigniter.org.cn/user_guide/general/environments.html) 开发环境/生产环境
 当系统运行在开发环境或生产环境中时能有不同的行为
 
@@ -81,41 +92,43 @@ CodeIgniter 的单元测试类非常简单，由一个测试方法和两个显�
 
 在链接中直接调用：http://ci-dev.com/news/test
 
-## 4. 通用主题
-### [移除 URL 中的 index.php](http://codeigniter.org.cn/user_guide/general/urls.html)
-* [Removing /index.php on Nginx](https://laracasts.com/discuss/channels/general-discussion/remving-indexphp-completely)
-* [Nginx的try_files指令使用实例](https://www.hi-linux.com/posts/53878.html)
+#### 定制测试报告命令行输出cli_report()
+ * [codeigniter-cli_unit_test](https://github.com/ashiina/codeigniter-cli_unit_test)
+ * [扩展原生类库](http://codeigniter.org.cn/user_guide/general/creating_libraries.html)
+ * `application/libraries/MY_Unit_test.php`
 
-
-```nginx
-location / {
-    try_files $uri $uri/ /index.php?$query_string;
-}
+```bash
+➜  codeigniter-2-startup git:(master) ✗ php index.php news test
+[Test results] : /opt/local/ide/git_storage/github/codeigniter-2-startup/application/controllers/news.php
+Test Name                                                    	 Test Datatype        	 Expected Datatype    	 Result 	 Notes                
+get news                                                     	 Array                	 Array                	 Passed
 ```
 
-### [控制器](http://codeigniter.org.cn/user_guide/general/controllers.html)
- * 继承 CI_Controller
- * 通过 URI 分段向方法传递参数：[controller-class]/[controller-method]/[arguments]
+## 4. 通用主题
 
-### [保留名称](http://codeigniter.org.cn/user_guide/general/reserved_names.html)
+### 4.1 [保留名称](http://codeigniter.org.cn/user_guide/general/reserved_names.html)
  * 控制器名称
  * 函数
  * 变量
  * 常量
 
-### [视图](http://codeigniter.org.cn/user_guide/general/views.html)
+### 4.2 [控制器](http://codeigniter.org.cn/user_guide/general/controllers.html)
+ * 继承 CI_Controller
+ * 通过 URI 分段向方法传递参数：[controller-class]/[controller-method]/[arguments]
+
+### 4.3 [视图](http://codeigniter.org.cn/user_guide/general/views.html)
  * 视图其实就是一个 Web 页面，或者页面的一部分
  * 视图必须通过 控制器 来加载
  * 使用循环
 
-### [URI 路由](http://codeigniter.org.cn/user_guide/general/routing.html)
+### 4.4 [URI 路由](http://codeigniter.org.cn/user_guide/general/routing.html)
  * 设置路由规则: `application/config/routes.php`
  * 通配符: `$route['product/(:num)'] = 'catalog/product_lookup_by_id/$1';`
  * 正则表达式
  * 回调函数
  * 使用 HTTP 动词
 
-### [模型](http://codeigniter.org.cn/user_guide/general/models.html) 
+### 4.5 [模型](http://codeigniter.org.cn/user_guide/general/models.html) 
 模型是专门用来和数据库打交道的 PHP 类
 
  * 加载模型: `$this->load->model('model_name');`
@@ -123,16 +136,16 @@ location / {
  * 连接数据库: `$config['dbdriver'] = 'mysqli';`
  * 
 
-### [辅助函数](http://codeigniter.org.cn/user_guide/general/helpers.html) 
+### 4.6 [辅助函数](http://codeigniter.org.cn/user_guide/general/helpers.html) 
  * 加载辅助函数 `$this->load->helper('name');`
  * 扩展辅助函数 `application/helpers/MY_array_helper.php` 在原有辅助函数中增加几个方法
 
-### [CI类库](http://codeigniter.org.cn/user_guide/general/libraries.html) 
+### 4.7 [CI类库](http://codeigniter.org.cn/user_guide/general/libraries.html) 
  * 加载类库 `$this->load->library('class_name');`
  * 加载多个类库 `$this->load->library(array('email', 'table'));`
  * 创建自有类库 //以后再说
 
-### [公共函数](http://codeigniter.org.cn/user_guide/general/common_functions.html) 
+### 4.8 [公共函数](http://codeigniter.org.cn/user_guide/general/common_functions.html) 
 CI中定义了一些全局的函数，可以直接使用
 
 ## 5. 类库、数据库及辅助函数

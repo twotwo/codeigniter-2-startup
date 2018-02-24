@@ -31,7 +31,8 @@ class News extends CI_Controller {
         $data['news'] = $this->news_model->get_news();
         //运行测试: 'test result', 'expected result', 'test name', 'notes'
         $this->unit->run($data['news'], 'is_array', 'get news');
-        echo $this->unit->report();
+        // echo $this->unit->report();
+        echo $this->unit->cli_report(); //详见https://github.com/ashiina/codeigniter-cli_unit_test
     }
 
     public function view($slug = NULL) {

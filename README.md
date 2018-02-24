@@ -149,8 +149,14 @@ get news                                                     	 Array            
 CI中定义了一些全局的函数，可以直接使用
 
 ## 5. 类库、数据库及辅助函数
-### [Libraries](http://codeigniter.org.cn/user_guide/libraries/index.html)
+### 5.1 [Libraries](http://codeigniter.org.cn/user_guide/libraries/index.html)
 
-### [Database](http://codeigniter.org.cn/user_guide/database/index.html)
+#### 5.1.1 缓存
+使用[MP_Cache](https://github.com/bcit-ci/CodeIgniter/wiki/MP-Cache:-Simple-flexible-Caching-of-parts-of-code)
 
-### [Helpers](http://codeigniter.org.cn/user_guide/helpers/index.html)
+ * 在Controller中加载: `$this->load->library('MP_cache');`
+ * 在Model中使用
+
+### 5.2 [Database](http://codeigniter.org.cn/user_guide/database/index.html)
+
+### 5.3 [Helpers](http://codeigniter.org.cn/user_guide/helpers/index.html)

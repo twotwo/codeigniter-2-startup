@@ -193,7 +193,7 @@ $config['log_threshold'] = 2;
 | application/logs/ folder. Use a full server path with trailing slash.
 |
 */
-$config['log_path'] = '';
+$config['log_path'] = FCPATH . 'var/logs/'; //重定向到index.php同级的var目录下
 
 /*
 |--------------------------------------------------------------------------
@@ -216,6 +216,9 @@ $config['log_date_format'] = 'Y-m-d H:i:s';
 |
 */
 $config['cache_path'] = '';
+
+$config['mp_cache_dir'] = FCPATH . 'var/cache/';	// CI扩展mp_cache缓存目录
+$config['mp_cache_default_expires'] = '3600';		// CI扩展mp_cache缓存过期时间
 
 /*
 |--------------------------------------------------------------------------

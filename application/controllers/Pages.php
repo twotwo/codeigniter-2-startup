@@ -11,6 +11,7 @@ class Pages extends CI_Controller {
                 // Whoops, we don't have a page for that!
                 show_404();
         }
+        echo 'ENVIRONMENT = ' . ENVIRONMENT;
 
         $data['title'] = ucfirst($page); // Capitalize the first letter
 

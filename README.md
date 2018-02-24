@@ -24,6 +24,12 @@ ENVIRONMENT 常量
  * [配置文件](http://codeigniter.org.cn/user_guide/libraries/config.html)
   - 特定环境的配置文件，新建或复制一个配置文件到 application/config/{ENVIRONMENT}/{FILENAME}.php
 
+### 2.3 [性能分析](http://codeigniter.org.cn/user_guide/general/profiling.html)
+ * `controllers/Pages.php` line 11, 启用分析器
+
+### 2.4 [错误处理](http://codeigniter.org.cn/user_guide/general/errors.html)
+ * 
+
 ## 3. 代码上手教程
 http://ci-dev.com/news/latest/10
 

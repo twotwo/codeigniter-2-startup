@@ -7,10 +7,13 @@
 class Pages extends CI_Controller {
 
     public function view($page = 'home') {
+        //启用分析器
+        $this->output->enable_profiler(TRUE);
         if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php')) {
                 // Whoops, we don't have a page for that!
                 show_404();
         }
+        //打印当前环境常量
         echo 'ENVIRONMENT = ' . ENVIRONMENT;
 
         $data['title'] = ucfirst($page); // Capitalize the first letter

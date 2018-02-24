@@ -5,9 +5,17 @@ class News extends CI_Controller {
         parent::__construct();
         $this->load->model('news_model');
         /**
-         * [URL 辅助函数](http://codeigniter.org.cn/user_guide/helpers/url_helper.html)
+         * 加载[URL 辅助函数](http://codeigniter.org.cn/user_guide/helpers/url_helper.html)
          */
         $this->load->helper('url_helper');
+        /**
+         * 加载[单元测试类](http://codeigniter.org.cn/user_guide/libraries/unit_testing.html)
+         */
+        $this->load->library('unit_test');
+        //生产环境下禁用单元测试
+        if (ENVIRONMENT === 'production') {
+            $this->unit->active(FALSE);
+        }
     }
 
     public function index() {
@@ -17,6 +25,13 @@ class News extends CI_Controller {
         $this->load->view('templates/header', $data);
         $this->load->view('news/index', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function test() {
+        $data['news'] = $this->news_model->get_news();
+        //运行测试: 'test result', 'expected result', 'test name', 'notes'
+        $this->unit->run($data['news'], 'is_array', 'get news');
+        echo $this->unit->report();
     }
 
     public function view($slug = NULL) {

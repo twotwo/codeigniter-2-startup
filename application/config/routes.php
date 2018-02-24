@@ -41,6 +41,7 @@
 // $route['default_controller'] = "welcome";
 // $route['404_override'] = '';
 $route['news/create'] = 'news/create';
+$route['news/test'] = 'news/test'; //for unit test
 $route['news/(:any)'] = 'news/view/$1';
 $route['news'] = 'news';
 $route['(:any)'] = 'pages/view/$1';

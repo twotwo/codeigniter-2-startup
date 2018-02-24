@@ -1,4 +1,5 @@
 # CodeIgniter v2.2.3 练手
+[参考](http://wiki.li3huo.com/CodeIgniter)
 
 ## 1. 安装
 
@@ -31,12 +32,12 @@ ENVIRONMENT 常量
  * 日志目录 `application/logs`
  * `application/config/config.php` line 185 $config['log_threshold']
  * log_message($level, $message) $level (string) -- Log level: 'error', 'debug' or 'info'
- * `controllers/Pages.php` line 
+ * `controllers/Pages.php` line 25
 
 ## 3. 代码上手教程
-http://ci-dev.com/news/latest/10
+http://ci-dev.com/news/
 
-### [加载静态内容](http://codeigniter.org.cn/user_guide/tutorial/static_pages.html)
+### 3.1 [加载静态内容](http://codeigniter.org.cn/user_guide/tutorial/static_pages.html)
 
 路由配置： application/config/routes.php
 
@@ -47,18 +48,22 @@ http://ci-dev.com/index.php/[controller-class]/[controller-method]/[arguments]
 http://ci-dev.com/pages/view/home
 http://ci-dev.com/pages/view/about
 
-### [读取新闻条目](http://codeigniter.org.cn/user_guide/tutorial/news_section.html)
-* 初始化数据库: source conf/mysql_init.sql
-* 数据库配置: dbdriver要设置成mysqli
-* 显示数据: http://ci-dev.com/news
+### 3.2 [读取新闻条目](http://codeigniter.org.cn/user_guide/tutorial/news_section.html)
+ * 初始化数据库: source conf/mysql_init.sql
+ * 数据库配置: dbdriver要设置成mysqli
+ * 显示数据: http://ci-dev.com/news
 
-### [创建新闻条目](http://codeigniter.org.cn/user_guide/tutorial/create_news_items.html)
+### 3.3 [创建新闻条目](http://codeigniter.org.cn/user_guide/tutorial/create_news_items.html)
 
 http://ci-dev.com/index.php/news/create
 
-### [以 CLI 方式运行](http://codeigniter.org.cn/user_guide/general/cli.html)
+以下内容是我认为一个上手一个框架必须包含的功能
+
+### 3.4 [以 CLI 方式运行](http://codeigniter.org.cn/user_guide/general/cli.html)
+为在命令行下运行单元测试做准备
+
 ```bash
-➜  codeigniter-2-startup git:(master) ✗ php index.php news   
+➜  codeigniter-2-startup git:(master) ✗ php index.php news
 <html>
     <head>
         <title>CodeIgniter 2 Tutorial</title>
@@ -68,6 +73,13 @@ http://ci-dev.com/index.php/news/create
         <h1>News archive</h1><h2>News archive</h2>
 ...
 ```
+
+### 3.5 [单元测试](http://codeigniter.org.cn/user_guide/libraries/unit_testing.html)
+CodeIgniter 的单元测试类非常简单，由一个测试方法和两个显示结果的方法组成。 它没打算成为一个完整的测试套件，只是提供一个简单的机制来测试你的代码是否 生成了正确的数据类型和结果。
+
+在 `controllers/News.php` 中引入单元测试
+
+在链接中直接调用：http://ci-dev.com/news/test
 
 ## 4. 通用主题
 ### [移除 URL 中的 index.php](http://codeigniter.org.cn/user_guide/general/urls.html)
@@ -82,43 +94,43 @@ location / {
 ```
 
 ### [控制器](http://codeigniter.org.cn/user_guide/general/controllers.html)
-* 继承 CI_Controller
-* 通过 URI 分段向方法传递参数：[controller-class]/[controller-method]/[arguments]
+ * 继承 CI_Controller
+ * 通过 URI 分段向方法传递参数：[controller-class]/[controller-method]/[arguments]
 
 ### [保留名称](http://codeigniter.org.cn/user_guide/general/reserved_names.html)
-* 控制器名称
-* 函数
-* 变量
-* 常量
+ * 控制器名称
+ * 函数
+ * 变量
+ * 常量
 
 ### [视图](http://codeigniter.org.cn/user_guide/general/views.html)
-* 视图其实就是一个 Web 页面，或者页面的一部分
-* 视图必须通过 控制器 来加载
-* 使用循环
+ * 视图其实就是一个 Web 页面，或者页面的一部分
+ * 视图必须通过 控制器 来加载
+ * 使用循环
 
 ### [URI 路由](http://codeigniter.org.cn/user_guide/general/routing.html)
-* 设置路由规则: `application/config/routes.php`
-* 通配符: `$route['product/(:num)'] = 'catalog/product_lookup_by_id/$1';`
-* 正则表达式
-* 回调函数
-* 使用 HTTP 动词
+ * 设置路由规则: `application/config/routes.php`
+ * 通配符: `$route['product/(:num)'] = 'catalog/product_lookup_by_id/$1';`
+ * 正则表达式
+ * 回调函数
+ * 使用 HTTP 动词
 
 ### [模型](http://codeigniter.org.cn/user_guide/general/models.html) 
 模型是专门用来和数据库打交道的 PHP 类
 
-* 加载模型: `$this->load->model('model_name');`
-* 自动加载: `application/config/autoload.php`
-* 连接数据库: `$config['dbdriver'] = 'mysqli';`
-* 
+ * 加载模型: `$this->load->model('model_name');`
+ * 自动加载: `application/config/autoload.php`
+ * 连接数据库: `$config['dbdriver'] = 'mysqli';`
+ * 
 
 ### [辅助函数](http://codeigniter.org.cn/user_guide/general/helpers.html) 
-* 加载辅助函数 `$this->load->helper('name');`
-* 扩展辅助函数 `application/helpers/MY_array_helper.php` 在原有辅助函数中增加几个方法
+ * 加载辅助函数 `$this->load->helper('name');`
+ * 扩展辅助函数 `application/helpers/MY_array_helper.php` 在原有辅助函数中增加几个方法
 
 ### [CI类库](http://codeigniter.org.cn/user_guide/general/libraries.html) 
-* 加载类库 `$this->load->library('class_name');`
-* 加载多个类库 `$this->load->library(array('email', 'table'));`
-* 创建自有类库 //以后再说
+ * 加载类库 `$this->load->library('class_name');`
+ * 加载多个类库 `$this->load->library(array('email', 'table'));`
+ * 创建自有类库 //以后再说
 
 ### [公共函数](http://codeigniter.org.cn/user_guide/general/common_functions.html) 
 CI中定义了一些全局的函数，可以直接使用

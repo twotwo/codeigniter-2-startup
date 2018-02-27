@@ -3,12 +3,21 @@ class News_model extends CI_Model {
 
     public function __construct() {
         $this->load->database();
+        //load cache library
+        $this->load->library('MP_cache');
     }
 
     public function get_news($slug = FALSE) {
+        //获取全部新闻
         if ($slug === FALSE) {
-            $query = $this->db->get('news');
-            return $query->result_array();
+            $cachename = 'news_list';
+            $data = $this->mp_cache->get($cachename);
+            if ($data === FALSE) {
+                $data = $this->db->get('news')->result_array();
+                $this->mp_cache->write($data, $cachename, CACHE_TIME);
+                log_message('debug', 'store cache '.$cachename);
+            } 
+            return $data;
         }
 
         $query = $this->db->get_where('news', array('slug' => $slug));

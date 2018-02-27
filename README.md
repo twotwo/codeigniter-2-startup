@@ -176,8 +176,14 @@ CI中定义了一些全局的函数，可以直接使用
 #### 5.2.1 缓存
 使用[MP_Cache](https://github.com/bcit-ci/CodeIgniter/wiki/MP-Cache:-Simple-flexible-Caching-of-parts-of-code)
 
- * 在Controller中加载: `$this->load->library('MP_cache');`
- * 在Model中使用
+ * `application/libraries\MP_cache.php`
+ * `application/config/config.php` line 210 `$config['mp_cache_dir'] = FCPATH . 'var/cache/';`
+ * 在Model中使用 `application/models/News_model.php`
+
+  - load library `$this->load->library('MP_cache');`
+  - missing & save `get_news`
+
+ * 测试 `cat var/cache/news_list.cache`
 
 
 

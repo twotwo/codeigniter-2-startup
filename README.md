@@ -160,6 +160,17 @@ CI中定义了一些全局的函数，可以直接使用
  * SQL标准插入 `application/controllers/News.php` _test_db_insert()
  * 运行单元测试 `php index.php news test`
 
+#### 5.1.2 [基于访问页面的数据库查询缓存](http://codeigniter.org.cn/user_guide/database/caching.html)
+数据库缓存类允许你把数据库查询结果保存在文本文件中以减少数据库访问
+
+启用缓存需要三步
+
+ 1. 在服务器上创建一个可写的目录以便保存缓存文件；
+ 2. 通过文件 application/config/database.php 中的 cachedir 参数设置其目录路径；
+ 3. 通过将文件 application/config/database.php 中的 cache_on 参数设置为 TRUE， 也可以用下面的方法手动配置
+
+缓存文件不会过期，那么你的应用程序中应该有删除缓存的机制 `$this->db->cache_delete()`
+
 ### 5.2 [Libraries](http://codeigniter.org.cn/user_guide/libraries/index.html)
 
 #### 5.2.1 缓存

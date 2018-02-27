@@ -88,7 +88,7 @@ http://ci-dev.com/index.php/news/create
 ### 3.5 [单元测试](http://codeigniter.org.cn/user_guide/libraries/unit_testing.html)
 CodeIgniter 的单元测试类非常简单，由一个测试方法和两个显示结果的方法组成。 它没打算成为一个完整的测试套件，只是提供一个简单的机制来测试你的代码是否 生成了正确的数据类型和结果。
 
-在 `controllers/News.php` 中引入单元测试
+在 `application/controllers/News.php` 中引入单元测试
 
 在链接中直接调用：http://ci-dev.com/news/test
 
@@ -148,15 +148,26 @@ get news                                                     	 Array            
 ### 4.8 [公共函数](http://codeigniter.org.cn/user_guide/general/common_functions.html) 
 CI中定义了一些全局的函数，可以直接使用
 
-## 5. 类库、数据库及辅助函数
-### 5.1 [Libraries](http://codeigniter.org.cn/user_guide/libraries/index.html)
+## 5. 数据库、类库及辅助函数
+### 5.1 Database
+ * [数据库参考](http://codeigniter.org.cn/user_guide/database/index.html)
+ * [数据库类用户指南](http://codeigniter.org.cn/userguide2/database/index.html)
 
-#### 5.1.1 缓存
+#### 5.1.1 [数据库快速入门](http://codeigniter.org.cn/user_guide/database/examples.html)
+ * [配置数据库](http://codeigniter.org.cn/user_guide/database/configuration.html) `application/config/database.php`
+ * [连接数据库](http://codeigniter.org.cn/user_guide/database/connecting.html) `application/models/New_model.php` line 5, $this->load->database();
+ * 多结果标准查询（数组形式）`application/controllers/News.php` line 51 `foreach ($data['news'] as $row)`
+ * SQL标准插入 `application/controllers/News.php` _test_db_insert()
+ * 运行单元测试 `php index.php news test`
+
+### 5.2 [Libraries](http://codeigniter.org.cn/user_guide/libraries/index.html)
+
+#### 5.2.1 缓存
 使用[MP_Cache](https://github.com/bcit-ci/CodeIgniter/wiki/MP-Cache:-Simple-flexible-Caching-of-parts-of-code)
 
  * 在Controller中加载: `$this->load->library('MP_cache');`
  * 在Model中使用
 
-### 5.2 [Database](http://codeigniter.org.cn/user_guide/database/index.html)
+
 
 ### 5.3 [Helpers](http://codeigniter.org.cn/user_guide/helpers/index.html)

@@ -25,12 +25,37 @@ class News extends CI_Controller {
         $this->load->view('templates/header', $data);
         $this->load->view('news/index', $data);
         $this->load->view('templates/footer');
-    }
+	}
+	
+	/**
+	 * 学习专用测试用例： 标准插入
+	 */
+	protected function _test_db_insert() {
+		//初始化数据库
+		$this->load->database();
+		$title = '先生';
+		$name = '李';
+		$sql = "INSERT INTO ci_db_test (title, name) VALUES (".$this->db->escape($title).", ".$this->db->escape($name).")";
+		$this->db->query($sql);
+        $affected = $this->db->affected_rows();
+        //应该插入了1条数据
+        $this->unit->run($affected, 1, 'insert 1 record');
+	}
 
     public function test() {
         $data['news'] = $this->news_model->get_news();
         //运行测试: 'test result', 'expected result', 'test name', 'notes'
-        $this->unit->run($data['news'], 'is_array', 'get news');
+        $this->unit->run($data['news'], 'is_array', 'get news from model');
+		//逐条读取$query->result_array()
+		echo '## read news'.PHP_EOL;
+        foreach ($data['news'] as $row) {
+            echo ' * '.$row['title'].PHP_EOL;
+            // echo $row['slug'];
+			// echo $row['text'];
+			$this->unit->run($row['text'], 'is_string', 'read news');
+		}
+		// 测试一下数据库标准插入
+		$this->_test_db_insert();
         // echo $this->unit->report();
         echo $this->unit->cli_report(); //详见https://github.com/ashiina/codeigniter-cli_unit_test
     }

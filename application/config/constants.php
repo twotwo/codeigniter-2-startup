@@ -36,6 +36,10 @@ define('FOPEN_READ_WRITE_CREATE',				'a+b');
 define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
+/**
+ * 业务参数
+ */
+defined('CACHE_TIME') || define('CACHE_TIME', 600);					// 缓存时间(秒)
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

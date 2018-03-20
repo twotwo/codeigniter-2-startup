@@ -45,6 +45,8 @@ $route['news/test'] = 'news/test'; //for unit test
 $route['news/(:any)'] = 'news/view/$1';
 $route['news'] = 'news';
 $route['(:any)'] = 'pages/view/$1';
+$route['pages/view'] = 'pages/view';
+$route['welcome'] = 'welcome';
 $route['default_controller'] = 'pages/view';
 
 

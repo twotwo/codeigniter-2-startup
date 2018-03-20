@@ -7,8 +7,8 @@
  * @package             CodeIgniter
  * @category            Libraries
  * @author              ashiina
- * @link                        https://github.com/ashiina/codeigniter-my_unit_test
- * @license         http://www.opensource.org/licenses/mit-license.html
+ * @link                https://github.com/ashiina/codeigniter-my_unit_test
+ * @license             http://www.opensource.org/licenses/mit-license.html
  * 
  * Copyright (c) 2013 Ahmad Shiina and contributers
  */
